@@ -262,6 +262,18 @@ TukeyHSD(anova)
 ### e. Gunakan compact letter display untuk menunjukkan perbedaan signifikan antara uji Anova dan uji Tukey
 Menggunakan fungsi `multicompLetters4()` untuk menunjukkan perbedaan
 ```R
-multcompLetters4(anova, tukey)
+cldTemp <- multcompLetters4(anova, tukey)
+print(cldTemp)
 ```
-![image](https://user-images.githubusercontent.com/90879937/207306994-a93950d7-6ba8-484f-9537-b7cdce994bcb.png)
+![image](https://user-images.githubusercontent.com/90879937/207309659-d5dd9ef3-ce62-4313-a676-5dee7b99d23c.png)
+
+Kemudian diupdate `summaryData` sebelumnya dengan cld
+
+```R
+cld <- as.data.frame.list(cldTemp$'Glass:Temp')
+summaryData$CLD <- cld$Letters
+print(summaryData)
+```
+![image](https://user-images.githubusercontent.com/90879937/207309981-a8191dfb-3f69-4028-9d7c-e97d2564fc0e.png)
+
+
