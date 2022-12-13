@@ -61,8 +61,8 @@ library(BSDA)
 ```
 ### a. H0 dan H1
 ```
-H0 : u1 - u2 = 0
-H1 : u1 - u2 ≠ 0
+H0 : μ1 - μ2 = 0
+H1 : μ1 - μ2 ≠ 0
 ```
 ### b. Hitung Sampel Statistik
 Mencari sampel statistik dapat dilakukan sebagai berikut
