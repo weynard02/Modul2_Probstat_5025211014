@@ -64,16 +64,50 @@ library(BSDA)
 H0 : μ1 - μ2 = 0
 H1 : μ1 - μ2 ≠ 0
 ```
+μ1 = rata-rata saham di Bandung
+μ2 = rata-rata saham di Bali
+
 ### b. Hitung Sampel Statistik
 Mencari sampel statistik dapat dilakukan sebagai berikut
 ```R
-n1 <- 19
-n2 <- 27
-sd1 <- 1.67
-sd2 <- 1.32
-
-sp <- (sd1*sd1*(n1-1) + sd2*sd2*(n2-1))/(n1+n2-2)
-print(sp)
+tsum.test(mean.x = 3.64, s.x = 1.67, n.x = 19, 
+        mean.y = 2.79, s.y = 1.32, n.y = 27, 
+        alternative = "two.sided", mu = 0,
+        var.equal = TRUE, conf.level = 0.95)
 ```
-![image](https://user-images.githubusercontent.com/90879937/207222967-39713aac-66bb-42af-869c-89a5d82b415d.png)
+![image](https://user-images.githubusercontent.com/90879937/207225111-317e2419-1ab4-4190-bf90-f9419928cc41.png)
+
+### c. Lakukan Uji Statistik (df =2)
+Untuk melakukan uji, kita perlu library mosiac untuk plot statistiknya
+```R
+library(mosaic)
+```
+Kemudian kita plotkan sebagai berikut dengan df yang diketahui:
+```R
+plotDist(dist = 't', df = 2, xmin = NULL, xmax = NULL, col = "#ff0000")
+```
+uji t didapatkan = 1.9267 (menurut 3b)
+![image](https://user-images.githubusercontent.com/90879937/207225609-cb4587cc-4a35-4793-ae17-d67b29285cc9.png)
+
+
+### d. Nilai Kritikal
+Kita dapat mencari nilai kritikal dengan fungsi `qt()` dengan df = 44 
+```
+qt(p = 0.05 / 2, df = 44, lower.tail = TRUE)
+qt(p = 0.05 / 2, df = 44, lower.tail = FALSE)
+```
+Ada dua karena two-tail\
+![image](https://user-images.githubusercontent.com/90879937/207226626-3617a3e2-129b-4ea9-8428-3bf7c42a13f0.png)
+
+### e. Keputusan
+```
+Tidak menolak H0
+```
+Karena nilai t berada di antara nilai kritikal
+### f. Kesimpulan
+```
+Tidak adanya bukti cukup bahwa tidak ada perbedaan pada rata-rata saham Bandung dan Bali
+```
+
+
 
