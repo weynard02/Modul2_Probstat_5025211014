@@ -120,7 +120,7 @@ Kita perlu menconvert data file dari link tersebut ke dalam program sebagai beri
 my_data <- read.table("onewayanova.txt", h = TRUE)
 attach(my_data)
 ```
-Perlu diingat readtable berupa path.
+Perlu diingat readtable berupa path sehingga perlu disesuaikan.\
 Kemudian kita membagi-bagi setiap speies ke dalam masing-masing group, sebagai berikut
 ```R
 my_data$Group <- as.factor(my_data$Group)
